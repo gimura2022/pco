@@ -3,9 +3,6 @@ NAME = pco
 POSTFIX ?= usr/local
 DESTDIR ?= /
 
-RM ?= rm -rf
-AR ?= ar
-
 .PHONY: all
 all: lib$(NAME).a lib$(NAME).so
 
