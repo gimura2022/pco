@@ -1,6 +1,3 @@
-#ifndef _pco_h
-#define _pco_h
-
 /* Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted.
 
@@ -13,6 +10,9 @@
  * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. */
 
 /* pco.h - parser combinators library for c */
+
+#ifndef _pco_h
+#define _pco_h
 
 #include <stdbool.h>
 
@@ -120,6 +120,8 @@ struct pco_parser pco_ptr(struct pco_ctx* ctx, struct pco_parser* parser);
 
 /* run parser on str */
 struct pco_result pco_run_parser(struct pco_ctx* ctx, const struct pco_parser* parser, const char* str);
+
+#endif
 
 #ifdef PCO_IMPLEMENTATION
 
@@ -562,5 +564,4 @@ fail:
 	return result;
 }
 
-#endif
 #endif
