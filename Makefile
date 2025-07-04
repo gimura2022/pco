@@ -8,7 +8,7 @@ all: $(NAME).h lib$(NAME).a lib$(NAME).so
 
 $(NAME).h: $(NAME).prt.h $(NAME).c
 	touch $(NAME).h
-	echo "#ifndef _pco_h" >> $(NAME).h
+	echo "#ifndef _pco_h" > $(NAME).h
 	echo "#define _pco_h" >> $(NAME).h
 	echo "" >> $(NAME).h
 	cat $(NAME).prt.h >> $(NAME).h
