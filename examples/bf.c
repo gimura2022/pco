@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <err.h>
 
+#define PCO_IMPLEMENTATION
 #include "../pco.h"
 
 static unsigned level = 0;	/* current loop level */
