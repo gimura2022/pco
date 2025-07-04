@@ -395,7 +395,7 @@ struct pco_parser pco_integer(struct pco_ctx* ctx)
 /* parse \t or space character many times or parse nothing */
 struct pco_parser pco_manyspace(struct pco_ctx* ctx)
 {
-	return pco_repeat(ctx, pco_anyspace(ctx));
+	return pco_not_empty_repeat(ctx, pco_anyspace(ctx));
 }
 
 /* parser function for pco_filter */
