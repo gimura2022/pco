@@ -4,7 +4,21 @@ POSTFIX ?= usr/local
 DESTDIR ?= /
 
 .PHONY: all
-all: lib$(NAME).a lib$(NAME).so
+all: $(NAME).h lib$(NAME).a lib$(NAME).so
+
+$(NAME).h: $(NAME).prt.h $(NAME).c
+	touch $(NAME).h
+	echo "#ifndef _pco_h" >> $(NAME).h
+	echo "#define _pco_h" >> $(NAME).h
+	echo "" >> $(NAME).h
+	cat $(NAME).prt.h >> $(NAME).h
+	echo "" >> $(NAME).h
+	echo "#ifdef PCO_IMPLEMENTATION" >> $(NAME).h
+	echo "" >> $(NAME).h
+	cat $(NAME).c >> $(NAME).h
+	echo "" >> $(NAME).h
+	echo "#endif" >> $(NAME).h
+	echo "#endif" >> $(NAME).h
 
 lib$(NAME).a: $(NAME).o
 	$(AR) rcs lib$(NAME).a $(NAME).o
@@ -17,6 +31,7 @@ clean:
 	$(RM) lib$(NAME).so
 	$(RM) lib$(NAME).a
 	$(RM) *.o
+	$(RM) $(NAME).h
 	$(RM) README
 
 .PHONY: install

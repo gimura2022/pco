@@ -1,3 +1,6 @@
+#ifndef _pco_h
+#define _pco_h
+
 /* Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted.
 
@@ -10,9 +13,6 @@
  * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. */
 
 /* pco.h - parser combinators library for c */
-
-#ifndef _pco_h
-#define _pco_h
 
 #include <stdbool.h>
 
@@ -122,6 +122,19 @@ struct pco_parser pco_ptr(struct pco_ctx* ctx, struct pco_parser* parser);
 struct pco_result pco_run_parser(struct pco_ctx* ctx, const struct pco_parser* parser, const char* str);
 
 #ifdef PCO_IMPLEMENTATION
+
+/* Permission to use, copy, modify, and/or distribute this software for
+ * any purpose with or without fee is hereby granted.
+
+ * THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL
+ * WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE
+ * FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
+ * DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+ * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. */
+
+/* pco.c - parser combinators library for c */
 
 #include <stdbool.h>
 #include <stdlib.h>
@@ -549,5 +562,5 @@ fail:
 	return result;
 }
 
-#endif /* PCO_IMPLEMENTATION */
-#endif /* _pco_h */
+#endif
+#endif
